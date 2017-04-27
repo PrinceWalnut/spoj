@@ -69,12 +69,12 @@ void segmented_sieve_eratosthenes(long lower_bound, long upper_bound)
 	if(result[max_prime-1] < lower_bound)
 		result[max_prime-1] = lower_bound;
 	if(result[max_prime-1] % 2 == 0)
-		result[max_prime-1] += 1;
+		result[max_prime-1] -= 1;
 	result[0] = 0; //So while loop executes
 
 	while(result[0] <= upper_bound) //Keeps iterating until array surpasses upper bound
 	{
-		result[0] = result[max_prime-1];
+		result[0] = result[max_prime-1]+2;
 		for(unsigned int i = 0; i < max_prime; i++) //Iterate through this segment
 		{
 			for(unsigned int k = 0; k <= final_prime; k++) //Iterate through primes
